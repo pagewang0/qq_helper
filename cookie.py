@@ -1,9 +1,9 @@
+# -*- coding: UTF-8 -*-
 """
 datetime: 2017/11/16
 by: pagewang
 describe: qq auto login print cookie
 """
-# -*- coding: UTF-8 -*-
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from time import sleep
