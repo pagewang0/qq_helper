@@ -37,12 +37,19 @@ def get_image_position():
     image1 = driver.find_element_by_id('slideBkg').get_attribute('src')
     image2 = driver.find_element_by_id('slideBlock').get_attribute('src')
 
+    if image1 == None or image2 == None:
+        return
+
+    ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:56.0) Gecko/20100101 Firefox/56.0'
+
+    req = urllib2.Request(image1, headers={ 'User-Agent': ua})
     f = open('slide_bkg.png', 'w')
-    f.write(urllib2.urlopen(image1).read())
+    f.write(urllib2.urlopen(req).read())
     f.close()
 
+    req = urllib2.Request(image2, headers={ 'User-Agent': ua})
     f = open('slide_block.png', 'w')
-    f.write(urllib2.urlopen(image2).read())
+    f.write(urllib2.urlopen(req).read())
     f.close()
 
     block = cv2.imread('slide_block.png', 0)
