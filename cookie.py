@@ -4,12 +4,14 @@ datetime: 2017/11/16
 by: pagewang
 describe: qq auto login print cookie
 """
+
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from time import sleep
 import urllib2
 import cv2
 import numpy as np
+import os
 
 driver = webdriver.Firefox()
 
@@ -140,4 +142,5 @@ for i in range(len(users)):
     login(users[i])
 
 print 'cookie 跑完啦'
-driver.close()
+
+driver.quit()
